@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AddView from "../views/AddView.vue"
 import MainView from "../views/MainView.vue"
+import AddtaskView from "../views/AddtaskView.vue"
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         path: '/Add',
         name: 'Add',
         component: AddView,
+    },
+    {
+        path: '/AddTask',
+        name: 'AddTask',
+        component: AddtaskView,
     }
     
 ];

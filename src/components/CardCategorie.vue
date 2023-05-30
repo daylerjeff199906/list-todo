@@ -1,8 +1,6 @@
 <script setup>
 import { defineProps,ref} from 'vue';
 
-const colorCat =ref('#E866C5')
-
 const props = defineProps({
     id: Number,
     title:{
@@ -13,7 +11,10 @@ const props = defineProps({
         type: Number,
         default: 0
     },
-    color: String
+    color: {
+      type: String,
+      default: '#E866C5'
+    }
 })
 </script>
 
@@ -29,7 +30,7 @@ const props = defineProps({
              <el-progress 
              :percentage="task" 
              :text-inside="true"
-             :color="colorCat"
+             :color="color"
              />
         </div>
     </el-card>
@@ -40,13 +41,14 @@ const props = defineProps({
   .text {
     font-size: 14px;
   }
-  
+
+
   .item {
     margin-bottom: 18px;
   }
   
   .box-card {
-    width: 150px;
+    width: 180px;
   }
 
      .demo-progress .el-progress--line {

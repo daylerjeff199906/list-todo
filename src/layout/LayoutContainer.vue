@@ -1,5 +1,5 @@
 <script setup>
-import MainView from '../views/MainView.vue';
+import HeaderView from '../components/HeaderView.vue';
 import {RouterView} from 'vue-router'
 </script>
 
@@ -9,8 +9,7 @@ import {RouterView} from 'vue-router'
             <div class="common-layout">
                 <el-container>
                  <el-header>
-                    Header
-
+                    <HeaderView/>
                   </el-header>
                   <el-main>
                      <RouterView/>
