@@ -6,21 +6,21 @@ const store = reactive({
     {
       id: 1,
       titulo: "Categoría 1",
-      cantidadTareas: 50,
+      cantidadTareas: 2,
       color: "#FA3CD0",
       estado: "pendiente",
       tareas: [
-        { idTask:1,  idCategoria:  '', nombre: "Tarea 1", state: "false" },
-        { idTask:2,  idCategoria: '', nombre: "Tarea 2", state: "false" }
+        { idTask:1,  idCategoria:  '', colorTask:'',  nombre: "Tarea 1", state: "false" },
+        { idTask:2,  idCategoria: '', colorTask:'', nombre: "Tarea 2", state: "false" }
       ]
     },
     {
       id: 2,
       titulo: "Categoría 2",
       cantidadTareas: 1,
-      color: "azul",
+      color: "blue",
       estado: "pendiente",
-      tareas: [{idTask:1, idCategoria: '', nombre: "Tarea 3", state: "false" }]
+      tareas: [{idTask:1, idCategoria: '', colorTask:'', nombre: "Tarea 3", state: "false" }]
     }
   ],
   
@@ -41,7 +41,7 @@ const store = reactive({
     setTimeout(() => {
     //  tarea.estado.value = true;
       this.deleteTask(categoriaId, tareaId);
-    }, 5000);
+    }, 500);
   }
   });
 
@@ -52,8 +52,11 @@ const store = reactive({
     }
   }
   
+  // Asignar el color del objeto padre a cada tarea
   for (const categoria of store.categorias) {
-    
+    for (const tarea of categoria.tareas) {
+      tarea.colorTask = categoria.color;
+     }
   }
 
 export default store;

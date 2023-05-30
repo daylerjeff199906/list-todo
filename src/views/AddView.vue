@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import {ref} from 'vue'
-import {CloseBold} from '@element-plus/icons-vue';
+import {CloseBold,Plus} from '@element-plus/icons-vue';
 
 import store from "../storage/store"
 
@@ -36,16 +36,20 @@ var cantCategoria= store.categorias.length+1;
     </div>
    <div><h1 style="color: #585D66;">Agregar nueva categoria</h1></div> 
    <div class="block">
-      <el-input v-model="newCategoryName" placeholder="Nombre de categoria" />
+      <el-input v-model="newCategoryName" size="large" placeholder="Nombre de categoria" />
       <div class="demo-color-block">
-        <span class="demonstration">Selecciona un color</span>
-        <el-color-picker v-model="newCategorycolor" />
-      </div>
+        <span class="demonstration">Color: </span>
+        <el-color-picker v-model="newCategorycolor" size="large" />
+      </div>  
+    </div>
+    <div style="text-align: right;">
       <el-button 
-      type="primary" 
-      @click="addCategoria"
-      plain
-      >Crear categoria</el-button>
+      type="primary"
+      size="large"
+      style="border-radius: 24px;"
+      @click="addCategoria" 
+      >Crear categoria <el-icon style="margin-left: 8px;"><Plus /></el-icon>
+      </el-button>
     </div>
 </template>
 
@@ -54,7 +58,7 @@ var cantCategoria= store.categorias.length+1;
   display: flex; 
   align-items: center;
   gap: 8px;
-  margin-bottom: 16px; 
+  margin-bottom: 20rem; 
 }
 
 .demo-color-block {

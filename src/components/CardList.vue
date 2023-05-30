@@ -1,13 +1,22 @@
 <script setup>
 // import { defineProps} from 'vue';
 import {Delete} from '@element-plus/icons-vue';
-import { reactive, defineProps } from 'vue';
+import { reactive, defineProps, computed } from 'vue';
 import store from "../storage/store"
 
 //props
-const {id,idCategoria,title} = defineProps({
+const {id,idCategoria,title, colorCategoria,state} = defineProps({
     id:  Number,
     idCategoria: Number,
+    state: {
+      type: Boolean,
+      default: false
+    },
+    colorCategoria: 
+    {
+        type: String,
+        default: '#0E5AEB'
+    },
     title:{
         type: String,
         default: 'Nombre de tarea'
@@ -23,6 +32,13 @@ const {id,idCategoria,title} = defineProps({
      store.deleteTaskDelay(idCategoria, id);
     }, 5000);
   };
+
+  // const checked1 = reactive({
+  //   checked: false,
+  // });
+  const colorRadio = reactive({
+    color: colorCategoria,
+  });
 
 </script>
 
@@ -41,10 +57,11 @@ const {id,idCategoria,title} = defineProps({
             v-model="checked1" 
             size="large"
             @change="deleteTaskDelay"
+            :style="{color: colorRadio.color}"
             >
             <template v-slot="{ checked }">
-              <label class="custom-label">
-                <span :checked="checked">{{ title }}</span>
+              <label class="custom-label" >
+                <span :checked="checked" style="color: #1F2426;" >{{ title }}</span>
                </label>
             </template>
             </el-checkbox>

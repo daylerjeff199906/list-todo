@@ -15,6 +15,7 @@ const addTask=()=> {
     selectedCategory.tareas.push({
       idTask: key++,
       idCategoria: categoryId.value,
+      colorTask: selectedCategory.color,
       nombre: taskName.value.trim(),
       state: 'false',
     });
@@ -52,16 +53,18 @@ const addTask=()=> {
                  <el-input v-model="taskName" placeholder="Ingrese nueva tarea" />
                 
             </div> 
-            
-            
-
+    </div>
             <div style="margin-bottom: 16px; text-align: right;">
                 <el-button @click="addTask" :icon="Plus" type="primary"  style="border-radius: 16px;">Añadir tarea</el-button>
             </div>
-    </div>
     
 </template>
 
 <style scoped>
-
+.block {
+  /* display: flex;  */
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20rem; 
+}
 </style>

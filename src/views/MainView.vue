@@ -55,9 +55,12 @@ import store from "../storage/store"
                 :id="key.idTask"
                 :title="key.nombre"
                 :idCategoria="key.idCategoria"
+                :colorCategoria="key.colorTask"
+                :state="key.state"
                 @deleteTask="deleteTask"
                 @deleteTaskDelay="deleteTaskDelay"
                 />
+
              </div>
             </el-scrollbar>
         </div>

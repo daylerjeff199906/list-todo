@@ -14,10 +14,6 @@ import {RouterView} from 'vue-router'
                   <el-main>
                      <RouterView/>
                   </el-main>
-                  <el-footer>
-                    Footer
-
-                  </el-footer>
                 </el-container>
             </div>
         </el-col>
@@ -26,6 +22,7 @@ import {RouterView} from 'vue-router'
   
 <style scoped>
 .common-layout{
-  font-family: Poppins,;
+  /* font-family: Poppins,; */
+  font-family: Roboto;
 }
 </style>
