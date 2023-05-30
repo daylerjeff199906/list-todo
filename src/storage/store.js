@@ -6,12 +6,12 @@ const store = reactive({
     {
       id: 1,
       titulo: "Categoría 1",
-      cantidadTareas: 2,
+      cantidadTareas: 50,
       color: "#FA3CD0",
       estado: "pendiente",
       tareas: [
-        { id:1, nombre: "Tarea 1", estado: "pendiente" },
-        { id:2, nombre: "Tarea 2", estado: "completada" }
+        { idTask:1,  idCategoria:  '', nombre: "Tarea 1", state: "false" },
+        { idTask:2,  idCategoria: '', nombre: "Tarea 2", state: "false" }
       ]
     },
     {
@@ -20,9 +20,40 @@ const store = reactive({
       cantidadTareas: 1,
       color: "azul",
       estado: "pendiente",
-      tareas: [{id:1, nombre: "Tarea 3", estado: "pendiente" }]
+      tareas: [{idTask:1, idCategoria: '', nombre: "Tarea 3", state: "false" }]
     }
-  ]
-});
+  ],
+  
+   // Eliminar una tarea
+   deleteTask(categoriaId, tareaId) {
+    const categoria = this.categorias.find(c => c.id === categoriaId);
+    if (categoria) {
+      const tareaIndex = categoria.tareas.findIndex(t => t.idTask === tareaId);
+      if (tareaIndex !== -1) {
+        categoria.tareas.splice(tareaIndex, 1);
+        categoria.cantidadTareas = categoria.tareas.length;
+      }
+    }
+  },
+
+  // Eliminar una tarea con demora de 5 segundos
+  deleteTaskDelay(categoriaId, tareaId) {
+    setTimeout(() => {
+    //  tarea.estado.value = true;
+      this.deleteTask(categoriaId, tareaId);
+    }, 5000);
+  }
+  });
+
+    // Asignar el idCategoria a cada tarea
+  for (const categoria of store.categorias) {
+    for (const tarea of categoria.tareas) {
+     tarea.idCategoria = categoria.id;
+    }
+  }
+  
+  for (const categoria of store.categorias) {
+    
+  }
 
 export default store;

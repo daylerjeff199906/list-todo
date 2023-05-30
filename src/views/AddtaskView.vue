@@ -7,16 +7,19 @@ import {Plus, CloseBold} from '@element-plus/icons-vue'
 const taskName =ref([''])
 const categoryId=ref('')
 
-var key=0;
+var key=1;
 // Funcion añadir tarea
 const addTask=()=> {
     const selectedCategory = store.categorias.find(categoria => categoria.id === categoryId.value);
     if (selectedCategory && taskName.value.trim() !== '') {
     selectedCategory.tareas.push({
-      id: key++,
+      idTask: key++,
+      idCategoria: categoryId.value,
       nombre: taskName.value.trim(),
-      estado: 'pendiente',
+      state: 'false',
     });
+    
+    selectedCategory.cantidadTareas++;
 
     taskName.value = '';
     console.log(store.categorias);

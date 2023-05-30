@@ -7,12 +7,12 @@ import store from "../storage/store"
 
 const newCategoryName = ref('');
 const newCategorycolor =ref('#4E83FA');
-var idCat = 2
+var cantCategoria= store.categorias.length+1;
   
   const addCategoria = () => {
   if (newCategoryName !== '' && newCategorycolor !== '') {
     store.categorias.push({
-      id: idCat++,
+      id: cantCategoria++,
       titulo: newCategoryName.value,
       cantidadTareas: 0,
       color: newCategorycolor.value,

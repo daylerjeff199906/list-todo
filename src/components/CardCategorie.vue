@@ -24,7 +24,7 @@ const props = defineProps({
         style="color: #585D66; font-size: medium; font-weight: bold;"
         >{{task}} tareas</div>
         <div
-        style="color: #012361; font-size: 28px; font-weight: bold;"
+        style="color: #012361; font-size: 24px; font-weight: bold;"
         >{{title}}</div>
         <div class="demo-progress">
              <el-progress 

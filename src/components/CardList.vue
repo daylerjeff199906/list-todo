@@ -1,14 +1,28 @@
 <script setup>
 // import { defineProps} from 'vue';
 import {Delete} from '@element-plus/icons-vue';
+import { reactive, defineProps } from 'vue';
+import store from "../storage/store"
 
-const props = defineProps({
+//props
+const {id,idCategoria,title} = defineProps({
     id:  Number,
+    idCategoria: Number,
     title:{
         type: String,
         default: 'Nombre de tarea'
     }
 })
+
+  const deleteTask = () => {
+    store.deleteTask(idCategoria, id);
+  };
+
+  const deleteTaskDelay = () => {
+    setTimeout(() => {
+     store.deleteTaskDelay(idCategoria, id);
+    }, 5000);
+  };
 
 </script>
 
@@ -17,7 +31,7 @@ const props = defineProps({
         <div style="text-align:right;">
           <el-button 
           type="danger"
-          @click="$emit('deleteTask',id)"
+          @click="deleteTask"
           :icon="Delete"
           circle>
          </el-button>
@@ -26,11 +40,11 @@ const props = defineProps({
             <el-checkbox
             v-model="checked1" 
             size="large"
-            @change="$emit('deleteTaskDelay',id)"
+            @change="deleteTaskDelay"
             >
             <template v-slot="{ checked }">
               <label class="custom-label">
-                <span :checked="checked">{{ id }}. {{ title }}</span>
+                <span :checked="checked">{{ title }}</span>
                </label>
             </template>
             </el-checkbox>

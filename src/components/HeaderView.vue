@@ -11,8 +11,8 @@
     </el-menu-item>
     
       <div class="flex-grow" />
-      <el-menu-item index="1"><el-icon :size="60"><BellFilled style="font-size: 32px;"/></el-icon></el-menu-item>
-      <el-menu-item index="2"><el-icon :size="60"><Tools style="font-size: 32px;"/></el-icon></el-menu-item>
+      <el-menu-item index="2"><el-icon :size="60"><Search style="font-size: 32px;"/></el-icon></el-menu-item>
+      <el-menu-item index="1"><el-icon :size="60"><BellFilled style="font-size: 32px; "/></el-icon></el-menu-item>
 
     </el-menu>
   </template>

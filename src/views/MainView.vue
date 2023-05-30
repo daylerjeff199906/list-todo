@@ -11,29 +11,19 @@ import {Plus} from '@element-plus/icons-vue';
 
 import store from "../storage/store"
 
-// eliminar tarea con y sin demora
-    const deleteTask = (id)=>{
-      task.value.splice(id,1)
-    }
-  
-    const deleteTaskDelay=(item)=> {
-      setTimeout(() => {
-        task.value.splice(item, 1);
-      }, 10000);
-    }  
 </script>
 
 <template>
 
     <div>
         <div>
-        <h1 style="font-size: 48px; font-weight: 900; color: #230C61;">Lista de pendientes</h1>
+        <h1 style="font-size: 48px; font-weight: 900; color: #230C61;">What's up, joy!</h1>
     </div>
     <div>
         <div style="display: flex; align-items: center;">
-          <span style="color: #585D66; font-size: 18px; font-weight: bold; flex: 1;">Categorias </span>
+          <span style="color: #BECBDF; font-size: 18px; font-weight: bold; flex: 1;">CATEGORIES </span>
         <RouterLink to="/Add">
-            <el-button type="primary" :icon="Plus" style="border-radius: 16px;" plain>Añadir Categoría</el-button>
+            <el-button type="primary" size="large" :icon="Plus" style="border-radius: 16px; border-radius: 24px; background-color: #45A0F5; " >Add Categorie</el-button>
         </RouterLink>
         </div>
         <div>
@@ -53,17 +43,18 @@ import store from "../storage/store"
     </div>
 
     <div>
-        <h3 style="color: #585D66;">Lista de tareas</h3>
+        <h3 style="color: #BECBDF;">TODAY'S TASK</h3>
         <div>
             <el-scrollbar height="400px">
 
              <div v-for="key in store.categorias.flatMap(categoria => categoria.tareas)" 
-                :key="key.id" 
+                :key="key.idTask" 
                 class="scrollbar-vertical">
                 
                 <CardList
-                :id="key.id"
+                :id="key.idTask"
                 :title="key.nombre"
+                :idCategoria="key.idCategoria"
                 @deleteTask="deleteTask"
                 @deleteTaskDelay="deleteTaskDelay"
                 />
@@ -80,7 +71,12 @@ import store from "../storage/store"
     
     <div style="text-align: center;">
         <RouterLink to="/AddTask">
-            <el-button type="primary" size="large" :icon="Plus" circle></el-button>
+            <el-button 
+            type="primary" 
+            size="large" 
+            :icon="Plus"
+            style="font-size: 24px; width: 48px; height: 48px; background-color: #45A0F5; ;"  
+            circle></el-button>
         </RouterLink>
     </div>
 

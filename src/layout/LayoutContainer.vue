@@ -26,6 +26,6 @@ import {RouterView} from 'vue-router'
   
 <style scoped>
 .common-layout{
-  font-family: Roboto;
+  font-family: Poppins,;
 }
 </style>
